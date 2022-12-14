@@ -354,6 +354,9 @@ for(var p in obj) {
 	if (obj.hasOwnProperty(p)) {
 		var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
 		if (v !== null && v !== "") {
+			if (window.location.pathname.includes('/' + v)) {
+				continue;
+			}
 			if (typeof v == "object") {
 				var r = window.datagridSerializeUrl(v, k);
 					if (r) {
